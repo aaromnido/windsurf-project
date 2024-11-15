@@ -1,85 +1,57 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'noticias'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, category } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
+<BaseLayout title={title} description={description}>
+	<article class="container mx-auto px-4 py-8">
+		<div class="max-w-4xl mx-auto">
+			<header class="mb-8">
+				<div class="mb-4">
+					<span class="text-sm text-primary bg-primary/10 px-3 py-1 rounded-full">
+						{category}
+					</span>
+				</div>
+				<h1 class="text-4xl font-bold mb-4">{title}</h1>
+				<div class="text-gray-600 mb-4">
+					<FormattedDate date={pubDate} />
+					{
+						updatedDate && (
+							<span>
+								{' '}
+								<span>•</span>
+								{' '}
+								Última actualización: <FormattedDate date={updatedDate} />
+							</span>
+						)
+					}
+				</div>
+			</header>
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+			<div class="mb-8">
+				<div class="relative w-full max-w-[1020px] mx-auto">
+					<img
+						src={heroImage}
+						alt={title}
+						class="w-full h-auto max-h-[680px] object-cover rounded-lg shadow-lg"
+					/>
 				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
-</html>
+			</div>
+
+			<div class="prose prose-lg max-w-none">
+				<slot />
+			</div>
+		</div>
+	</article>
+</BaseLayout>
+
+<style is:global>
+	.prose img {
+		@apply max-w-[1020px] max-h-[680px] mx-auto rounded-lg shadow-lg object-cover;
+	}
+</style>
