@@ -22,7 +22,8 @@ const posts = (await getCollection('noticias')).sort(
 					description={post.data.description}
 					pubDate={post.data.pubDate}
 					category={post.data.category}
-					heroImage={post.data.heroImage}
+					heroImage={post.data.heroImage ?? ''}
+				
 					slug={post.slug}
 				/>
 			))}
