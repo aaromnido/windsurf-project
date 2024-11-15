@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import HeroPostCard from '../components/HeroPostCard.astro';
 
 // Obtener las últimas noticias
 const posts = (await getCollection('noticias'))
@@ -10,53 +11,31 @@ const posts = (await getCollection('noticias'))
 
 <BaseLayout title="EVCars - Noticias, pruebas y reviews de coches eléctricos">
   <!-- Hero Section -->
-  <section class="bg-white">
+  <section class="bg-white pt-10">
     <div class="container mx-auto px-4 py-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {posts.slice(0, 1).map(post => (
-          <div class="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
-            <img
-              src={post.data.heroImage}
-              alt={post.data.title}
-              class="absolute inset-0 w-full h-full object-cover"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
-              <div class="absolute bottom-0 p-6">
-                <span class="text-white text-sm bg-primary px-3 py-1 rounded-full">
-                  {post.data.category}
-                </span>
-                <h2 class="text-2xl font-bold text-white mt-2">
-                  <a href={`/noticias/${post.slug}/`} class="hover:underline">
-                    {post.data.title}
-                  </a>
-                </h2>
-                <p class="text-gray-300 mt-2">{post.data.description}</p>
-              </div>
-            </div>
-          </div>
+          <HeroPostCard
+            title={post.data.title}
+            description={post.data.description}
+            category={post.data.category}
+            pubDate={post.data.pubDate}
+            heroImage={post.data.heroImage ?? ''}
+            slug={post.slug}
+            featured={true}
+          />
         ))}
         
         <div class="grid grid-cols-2 gap-4">
           {posts.slice(1, 5).map(post => (
-            <div class="relative h-[190px] rounded-lg overflow-hidden shadow-md">
-              <img
-                src={post.data.heroImage}
-                alt={post.data.title}
-                class="absolute inset-0 w-full h-full object-cover"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
-                <div class="absolute bottom-0 p-4">
-                  <span class="text-white text-xs bg-primary px-2 py-1 rounded-full">
-                    {post.data.category}
-                  </span>
-                  <h3 class="text-sm font-bold text-white mt-1">
-                    <a href={`/noticias/${post.slug}/`} class="hover:underline">
-                      {post.data.title}
-                    </a>
-                  </h3>
-                </div>
-              </div>
-            </div>
+            <HeroPostCard
+              title={post.data.title}
+              description={post.data.description}
+              category={post.data.category}
+              pubDate={post.data.pubDate}
+              heroImage={post.data.heroImage ?? ''}
+              slug={post.slug}
+            />
           ))}
         </div>
       </div>
