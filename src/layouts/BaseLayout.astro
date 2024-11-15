@@ -14,7 +14,7 @@ const {
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="font-light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -40,20 +40,17 @@ const {
     <!-- Preload Fonts -->
     <link
       rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-        type="text/css"
-      />
-    </noscript>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
-  <body class="min-h-screen flex flex-col">
-    <header class="bg-white shadow-sm sticky top-0 z-50 bg-white/80 backdrop-blur-lg">
+  <body class="min-h-screen flex flex-col font-light">
+    <header class="bg-white sticky top-0 z-50 bg-white/80 backdrop-blur-lg">
       <div class="container mx-auto px-4">
         <div class="flex justify-between items-center py-6">
           <div class="flex items-center space-x-4">
@@ -65,9 +62,9 @@ const {
 
           <!-- Navigation -->
           <nav class="hidden md:flex space-x-8">
-            <a href="/noticias" class="text-gray-600 hover:text-primary transition-colors uppercase">Noticias</a>
-            <a href="/pruebas" class="text-gray-600 hover:text-primary transition-colors uppercase">Pruebas</a>
-            <a href="/guias" class="text-gray-600 hover:text-primary transition-colors uppercase">Guías</a>
+            <a href="/noticias" class="text-gray-600 hover:text-primary transition-colors uppercase font-medium border-b-2 border-transparent hover:border-primary transition-all duration-300">Noticias</a>
+            <a href="/pruebas" class="text-gray-600 hover:text-primary transition-colors uppercase font-medium border-b-2 border-transparent hover:border-primary transition-all duration-300">Pruebas</a>
+            <a href="/guias" class="text-gray-600 hover:text-primary transition-colors uppercase font-medium border-b-2 border-transparent hover:border-primary transition-all duration-300">Guías</a>
           </nav>
 
           <!-- Mobile Menu Button -->
@@ -80,10 +77,10 @@ const {
 
         <!-- Mobile menu -->
         <div class="md:hidden hidden pb-4" id="mobile-menu">
-          <div class="flex flex-col space-y-4">
-            <a href="/noticias" class="text-gray-600 hover:text-primary transition-colors">Noticias</a>
-            <a href="/pruebas" class="text-gray-600 hover:text-primary transition-colors">Pruebas</a>
-            <a href="/guias" class="text-gray-600 hover:text-primary transition-colors">Guías</a>
+          <div class="flex flex-col space-y-4 text-xl text-center">
+            <a href="/noticias" class="text-gray-600 hover:text-primary transition-colors uppercase font-medium py-10">Noticias</a>
+            <a href="/pruebas" class="text-gray-600 hover:text-primary transition-colors uppercase font-medium py-10">Pruebas</a>
+            <a href="/guias" class="text-gray-600 hover:text-primary transition-colors uppercase font-medium py-10">Guías</a>
           </div>
         </div>
       </div>
