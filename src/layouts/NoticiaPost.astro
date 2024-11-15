@@ -9,16 +9,25 @@ const { title, description, pubDate, updatedDate, heroImage, category } = Astro.
 ---
 
 <BaseLayout title={title} description={description}>
-	<article class="container mx-auto px-4 py-8">
+	<!-- Hero image section - full width -->
+	<div class="w-full h-[60vh] min-h-[400px] relative mb-12">
+		<img
+			src={heroImage}
+			alt={title}
+			class="w-full h-full object-cover"
+		/>
+	</div>
+
+	<article class="container mx-auto px-4">
 		<div class="max-w-4xl mx-auto">
 			<header class="mb-8">
 				<div class="mb-4">
-					<span class="text-sm text-primary bg-primary/10 px-3 py-1 rounded-full">
+					<span class="text-sm text-primary bg-primary/10 px-3 py-1 rounded-sm bg-black text-white font-medium uppercase">
 						{category}
 					</span>
 				</div>
-				<h1 class="text-4xl font-bold mb-4">{title}</h1>
-				<div class="text-gray-600 mb-4">
+				<h1 class="text-4xl font-bold mb-4 border-b-[2px] border-gray-900 pb-6">{title}</h1>
+				<div class="text-gray-600 mb-4 text-sm">
 					<FormattedDate date={pubDate} />
 					{
 						updatedDate && (
@@ -32,16 +41,6 @@ const { title, description, pubDate, updatedDate, heroImage, category } = Astro.
 					}
 				</div>
 			</header>
-
-			<div class="mb-8">
-				<div class="relative w-full max-w-[1020px] mx-auto">
-					<img
-						src={heroImage}
-						alt={title}
-						class="w-full h-auto max-h-[680px] object-cover rounded-lg shadow-lg"
-					/>
-				</div>
-			</div>
 
 			<div class="prose prose-lg max-w-none">
 				<slot />
