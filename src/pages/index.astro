@@ -1,50 +1,156 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Obtener las últimas noticias
+const posts = (await getCollection('noticias'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 12);
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout title="ForoCochesEléctricos - Noticias, pruebas y reviews de coches eléctricos">
+  <!-- Hero Section -->
+  <section class="bg-white">
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {posts.slice(0, 1).map(post => (
+          <div class="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
+            <img
+              src={post.data.heroImage}
+              alt={post.data.title}
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+              <div class="absolute bottom-0 p-6">
+                <span class="text-white text-sm bg-primary px-3 py-1 rounded-full">
+                  {post.data.category}
+                </span>
+                <h2 class="text-2xl font-bold text-white mt-2">
+                  <a href={`/noticias/${post.slug}/`} class="hover:underline">
+                    {post.data.title}
+                  </a>
+                </h2>
+                <p class="text-gray-300 mt-2">{post.data.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+        
+        <div class="grid grid-cols-2 gap-4">
+          {posts.slice(1, 5).map(post => (
+            <div class="relative h-[190px] rounded-lg overflow-hidden shadow-md">
+              <img
+                src={post.data.heroImage}
+                alt={post.data.title}
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                <div class="absolute bottom-0 p-4">
+                  <span class="text-white text-xs bg-primary px-2 py-1 rounded-full">
+                    {post.data.category}
+                  </span>
+                  <h3 class="text-sm font-bold text-white mt-1">
+                    <a href={`/noticias/${post.slug}/`} class="hover:underline">
+                      {post.data.title}
+                    </a>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest News Section -->
+  <section class="bg-gray-50 py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-2xl font-bold">Últimas Noticias</h2>
+        <a href="/noticias" class="text-primary hover:text-primary-dark">
+          Ver todas →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.slice(5, 11).map(post => (
+          <article class="bg-white rounded-lg overflow-hidden shadow-md">
+            <a href={`/noticias/${post.slug}/`}>
+              <img
+                src={post.data.heroImage}
+                alt={post.data.title}
+                class="w-full h-48 object-cover"
+              />
+            </a>
+            <div class="p-6">
+              <span class="text-sm text-primary bg-primary/10 px-3 py-1 rounded-full">
+                {post.data.category}
+              </span>
+              <h3 class="mt-2 text-xl font-semibold">
+                <a href={`/noticias/${post.slug}/`} class="hover:text-primary">
+                  {post.data.title}
+                </a>
+              </h3>
+              <p class="mt-2 text-gray-600 line-clamp-2">
+                {post.data.description}
+              </p>
+              <div class="mt-4 flex items-center text-sm text-gray-500">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('es-ES', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-8">Explora por Categoría</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          {
+            name: 'Tesla',
+            image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+          },
+          {
+            name: 'Volkswagen',
+            image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+          },
+          {
+            name: 'Hyundai',
+            image: 'https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+          },
+          {
+            name: 'KIA',
+            image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+          }
+        ].map(category => (
+          <a
+            href={`/categoria/${category.name.toLowerCase()}`}
+            class="group relative h-40 rounded-lg overflow-hidden shadow-md"
+          >
+            <img
+              src={category.image}
+              alt={category.name}
+              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-300">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <h3 class="text-xl font-bold text-white">{category.name}</h3>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
