@@ -27,30 +27,33 @@ const categoryPadding = featured ? 'px-3' : 'px-2';
 const shadow = featured ? 'shadow-lg' : 'shadow-md';
 ---
 
-<div class={`relative ${height} rounded-lg overflow-hidden ${shadow}`}>
-  <img
-    src={heroImage}
-    alt={title}
-    class="absolute inset-0 w-full h-full object-cover"
-  />
-  <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
-    <div class={`absolute bottom-0 ${padding}`}>
-      <span class={`text-white ${categorySize} bg-primary ${categoryPadding} py-1 rounded-full`}>
-        {category}
-      </span>
-      <h2 class={`${titleSize} font-bold text-white mt-2`}>
-        <a href={`/noticias/${slug}/`} class="hover:underline">
+<a 
+  href={`/noticias/${slug}/`} 
+  class="block transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(59,130,246,0.7)] rounded-lg overflow-hidden"
+>
+  <div class={`relative ${height} rounded-lg overflow-hidden ${shadow}`}>
+    <img
+      src={heroImage}
+      alt={title}
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+      <div class={`absolute bottom-0 ${padding}`}>
+        <span class={`text-white ${categorySize} bg-black ${categoryPadding} py-1 rounded-sm uppercase`}>
+          {category}
+        </span>
+        <h2 class={`${titleSize} font-bold text-white mt-2`}>
           {title}
-        </a>
-      </h2>
-      {featured && <p class="text-gray-300 mt-2">{description}</p>}
-      <div class="mt-2 text-gray-400 text-sm">
-        {pubDate.toLocaleDateString('es-ES', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        })}
+        </h2>
+        {featured && <p class="text-gray-300 mt-2">{description}</p>}
+        <div class="mt-2 text-gray-400 text-sm">
+          {pubDate.toLocaleDateString('es-ES', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </div>
       </div>
     </div>
   </div>
-</div>
+</a>
