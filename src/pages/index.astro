@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import HeroPostCard from '../components/HeroPostCard.astro';
+import PostCard from '../components/PostCard.astro';
 
 // Obtener las últimas noticias
 const posts = (await getCollection('noticias'))
@@ -58,37 +59,14 @@ const posts = (await getCollection('noticias'))
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.slice(5, 11).map(post => (
-          <article class="bg-white rounded-lg overflow-hidden shadow-md">
-            <a href={`/noticias/${post.slug}/`}>
-              <img
-                src={post.data.heroImage}
-                alt={post.data.title}
-                class="w-full h-48 object-cover"
-              />
-            </a>
-            <div class="p-6">
-              <span class="text-sm text-primary bg-primary/10 px-3 py-1 rounded-full">
-                {post.data.category}
-              </span>
-              <h3 class="mt-2 text-xl font-semibold">
-                <a href={`/noticias/${post.slug}/`} class="hover:text-primary">
-                  {post.data.title}
-                </a>
-              </h3>
-              <p class="mt-2 text-gray-600 line-clamp-2">
-                {post.data.description}
-              </p>
-              <div class="mt-4 flex items-center text-sm text-gray-500">
-                <time datetime={post.data.pubDate.toISOString()}>
-                  {post.data.pubDate.toLocaleDateString('es-ES', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </time>
-              </div>
-            </div>
-          </article>
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            category={post.data.category}
+            pubDate={post.data.pubDate}
+            heroImage={post.data.heroImage ?? ''}
+            slug={post.slug}
+          />
         ))}
       </div>
     </div>
