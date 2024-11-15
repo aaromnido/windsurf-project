@@ -2,7 +2,7 @@
 title: 'Nuevo MINI Cooper SE 2024: El urbano eléctrico se reinventa'
 description: 'MINI presenta la nueva generación del Cooper SE, que mantiene su espíritu urbano y divertido con un diseño renovado y mayor autonomía.'
 pubDate: '2024-01-18'
-heroImage: 'https://images.unsplash.com/photo-1706003259516-2812ee7c7e6d'
+heroImage: 'https://cdn.motor1.com/images/mgl/Vznkez/s1/mini-cooper-electric-2024.webp'
 category: 'Noticias'
 tags: ['MINI', 'Urbano', 'Eléctrico', '2024']
 author: 'EVCars'

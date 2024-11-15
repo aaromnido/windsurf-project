@@ -2,7 +2,7 @@
 title: 'Nuevo Porsche Macan Eléctrico 2024: La revolución SUV'
 description: 'Porsche presenta la versión 100% eléctrica del Macan, que promete mantener el ADN deportivo de la marca con una tecnología de vanguardia.'
 pubDate: '2024-01-20'
-heroImage: 'https://images.unsplash.com/photo-1706003259516-2812ee7c7e6d'
+heroImage: 'https://fotografias.lasexta.com/clipping/cmsimages02/2024/01/26/0D6699A7-E86F-4010-888A-98E9CC77DAEA/porsche-macan_98.jpg?crop=1920,1080,x0,y0&width=1900&height=1069&optimize=high&format=webply6'
 category: 'Noticias'
 tags: ['Porsche', 'SUV', 'Eléctrico', '2024', 'Deportivo']
 author: 'EVCars'

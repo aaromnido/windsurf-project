@@ -2,7 +2,7 @@
 title: 'BYD Seal 2024: El sedán eléctrico que desafía al Tesla Model 3'
 description: 'Analizamos en detalle el BYD Seal, el nuevo sedán eléctrico que promete revolucionar el mercado con su tecnología Blade Battery y un precio competitivo.'
 pubDate: '2024-01-15'
-heroImage: 'https://images.unsplash.com/photo-1706003259516-2812ee7c7e6d'
+heroImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQmucEGwEsIHsMVpvgMTnxBUaFPdjnX_ej6A&s'
 category: 'Noticias'
 tags: ['BYD', 'Sedán', 'Eléctrico', '2024']
 author: 'EVCars'

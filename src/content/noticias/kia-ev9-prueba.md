@@ -1,8 +1,8 @@
 ---
-title: 'Prueba Kia EV9 2024: El SUV eléctrico familiar definitivo'
+title: 'Prueba Kia EV9: El SUV eléctrico familiar definitivo'
 description: 'Analizamos el nuevo buque insignia de Kia, un SUV eléctrico de 7 plazas que destaca por su espacio, tecnología y capacidades.'
 pubDate: '2024-01-05'
-heroImage: 'https://images.unsplash.com/photo-1706003259516-2812ee7c7e6d'
+heroImage: 'https://cdn-images.motor.es/image/m/1320w/fotos-noticias/2023/10/prueba-kia-ev9-202398153-1698334815_1.jpg'
 category: 'Pruebas'
 tags: ['Kia', 'SUV', 'Eléctrico', '2024', '7 plazas']
 author: 'EVCars'

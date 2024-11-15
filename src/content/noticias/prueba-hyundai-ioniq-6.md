@@ -2,7 +2,7 @@
 title: 'Prueba Hyundai IONIQ 6: El sedán eléctrico más eficiente'
 description: 'Analizamos el Hyundai IONIQ 6, un sedán eléctrico que destaca por su diseño aerodinámico y su eficiencia récord'
 pubDate: '2024-01-13'
-heroImage: 'https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+heroImage: 'https://static.motor.es/fotos-jato/hyundai/uploads/hyundai-ioniq-6-63d2c9ef56bdb.jpg'
 category: 'Pruebas'
 tags: ['Hyundai', 'IONIQ 6', 'Pruebas']
 ---

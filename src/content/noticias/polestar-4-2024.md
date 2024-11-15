@@ -2,7 +2,7 @@
 title: 'Polestar 4 2024: El SUV coupé que rompe moldes'
 description: 'Polestar presenta su nuevo SUV coupé eléctrico sin ventana trasera, apostando por la tecnología y el diseño futurista.'
 pubDate: '2024-01-10'
-heroImage: 'https://images.unsplash.com/photo-1706003259516-2812ee7c7e6d'
+heroImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkLkrK3UPm4Z9klcOJeuSApkH6tAzz5NT7cA&s'
 category: 'Noticias'
 tags: ['Polestar', 'SUV', 'Eléctrico', '2024']
 author: 'EVCars'

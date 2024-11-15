@@ -1,8 +1,8 @@
 ---
-title: 'Volkswagen ID.7 Tourer 2024: El familiar eléctrico'
+title: 'Volkswagen ID.7 Tourer: El familiar eléctrico'
 description: 'Volkswagen presenta su nuevo familiar eléctrico ID.7 Tourer, con hasta 685 litros de maletero y 700km de autonomía'
 pubDate: '2024-01-14'
-heroImage: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+heroImage: 'https://cdn.topgear.es/sites/navi.axelspringer.es/public/media/image/2024/02/volkswagen-id7-tourer-3276948.jpg?tf=3840x'
 category: 'Volkswagen'
 tags: ['Volkswagen', 'ID.7', 'Familiar', 'Novedades']
 ---
