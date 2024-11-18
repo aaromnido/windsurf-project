@@ -1,0 +1,9 @@
+---
+const { noticia } = Astro.props;
+---
+
+<article>
+    <a href={`/noticias/${noticia.slug}#disqus_thread`} class="...">
+        // ... resto del contenido de la card ...
+    </a>
+</article> 
