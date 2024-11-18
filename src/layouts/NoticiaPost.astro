@@ -7,15 +7,20 @@ import Comments from '../components/Comments.astro';
 type Props = CollectionEntry<'noticias'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage, category } = Astro.props;
+const slug = Astro.url.pathname.split('/').filter(Boolean).pop();
 ---
 
 <BaseLayout title={title} description={description}>
 	<!-- Hero image section - full width -->
-	<div class="w-full h-[60vh] min-h-[400px] relative mb-12">
+	<div 
+		class="w-full h-[60vh] min-h-[400px] relative mb-12"
+		transition:name={`post-${slug}`}
+	>
 		<img
 			src={heroImage}
 			alt={title}
 			class="w-full h-full object-cover"
+			transition:name={`image-${slug}`}
 		/>
 	</div>
 
@@ -23,12 +28,23 @@ const { title, description, pubDate, updatedDate, heroImage, category } = Astro.
 		<div class="max-w-4xl mx-auto">
 			<header class="mb-8">
 				<div class="mb-4">
-					<span class="text-sm text-primary bg-primary/10 px-3 py-1 rounded-sm bg-black text-white font-medium uppercase">
+					<span 
+						class="text-sm text-primary bg-primary/10 px-3 py-1 rounded-sm bg-black text-white font-medium uppercase"
+						transition:name={`category-${slug}`}
+					>
 						{category}
 					</span>
 				</div>
-				<h1 class="text-4xl font-bold mb-4 border-b-[2px] border-gray-900 pb-6">{title}</h1>
-				<div class="text-gray-600 mb-4 text-sm">
+				<h1 
+					class="text-4xl font-bold mb-4 border-b-[2px] border-gray-900 pb-6"
+					transition:name={`title-${slug}`}
+				>
+					{title}
+				</h1>
+				<div 
+					class="text-gray-600 mb-4 text-sm"
+					transition:name={`date-${slug}`}
+				>
 					<FormattedDate date={pubDate} />
 					{
 						updatedDate && (

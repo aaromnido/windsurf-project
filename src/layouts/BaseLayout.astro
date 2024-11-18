@@ -1,5 +1,7 @@
 ---
 // Importar componentes necesarios
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
   title: string;
   description?: string;
@@ -48,6 +50,9 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Astro View Transitions -->
+    <ViewTransitions />
   </head>
   <body class="min-h-screen flex flex-col font-light">
     <header class="bg-white sticky top-0 z-50 bg-white/80 backdrop-blur-lg">

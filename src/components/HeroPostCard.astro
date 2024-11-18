@@ -30,23 +30,34 @@ const shadow = featured ? 'shadow-lg' : 'shadow-md';
 <a 
   href={`/noticias/${slug}/`} 
   class="block transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(59,130,246,0.99)] rounded-lg overflow-hidden"
+  transition:name={`post-${slug}`}
 >
   <div class={`relative ${height} rounded-lg overflow-hidden ${shadow}`}>
     <img
       src={heroImage}
       alt={title}
       class="absolute inset-0 w-full h-full object-cover"
+      transition:name={`image-${slug}`}
     />
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
       <div class={`absolute bottom-0 ${padding}`}>
-        <span class={`text-white ${categorySize} bg-black ${categoryPadding} py-1 rounded-full font-medium uppercase`}>
+        <span 
+          class={`text-white ${categorySize} bg-black ${categoryPadding} py-1 rounded-full font-medium uppercase`}
+          transition:name={`category-${slug}`}
+        >
           {category}
         </span>
-        <h2 class={`${titleSize} font-bold text-white mt-2`}>
+        <h2 
+          class={`${titleSize} font-bold text-white mt-2`}
+          transition:name={`title-${slug}`}
+        >
           {title}
         </h2>
-        {featured && <p class="text-gray-300 mt-2">{description}</p>}
-        <div class="mt-2 text-gray-400 text-sm">
+        {featured && <p class="text-gray-300 mt-2" transition:name={`desc-${slug}`}>{description}</p>}
+        <div 
+          class="mt-2 text-gray-400 text-sm"
+          transition:name={`date-${slug}`}
+        >
           {pubDate.toLocaleDateString('es-ES', {
             year: 'numeric',
             month: 'long',
